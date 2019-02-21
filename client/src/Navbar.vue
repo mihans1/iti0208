@@ -1,9 +1,9 @@
 <template>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a class="active" href="#add">ADD POINT</a>
+        <a href="#topfeed">VIEW TOP POSTS</a>
+        <a href="#account">MY ACCOUNT</a>
+        <a href="#about">ABOUT US</a>
     </div>
 </template>
 
