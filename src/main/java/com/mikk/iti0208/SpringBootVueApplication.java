@@ -25,7 +25,6 @@ public class SpringBootVueApplication {
         return args -> {
             Stream.of("Buy milk", "Eat pizza", "Write tutorial", "Study Vue.js", "Go kayaking").forEach(name -> {
                 Todo todo = new Todo();
-                todo.setTitle(name);
                 repository.save(todo);
             });
             repository.findAll().forEach(System.out::println);
