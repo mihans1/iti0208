@@ -1,6 +1,7 @@
 <template>
     <div>
         <div id="app">
+            <Navbar/>
             <Map/>
         </div>
     </div>
@@ -14,11 +15,12 @@
     export default {
         name: 'app',
         components: {
+            Map,
             Navbar,
-            About,
-            Map
+            About
         }
     }
+
 </script>
 
 <style>

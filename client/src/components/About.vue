@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <navbar/>
+            <Navbar/>
         </div>
         <div>
             <p>This is a paragraph.</p>
@@ -9,13 +9,17 @@
             <p>This is a paragraph.</p>
             <p>This is another paragraph.</p>
         </div>
+        <div>
+            <About/>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "about.vue"
+        name: 'About',
     }
+
 </script>
 
 <style scoped>
