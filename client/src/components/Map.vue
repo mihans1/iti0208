@@ -9,7 +9,7 @@
             <GmapMarker
                     :key="index"
                     v-for="(m, index) in markers"
-                    :position="m.position"
+                    :position="m.objectLocation"
                     :clickable="true"
                     :draggable="false"
                     @click="toggleInfoWindow(m,index)"
@@ -33,17 +33,7 @@
         data() {
             return {
                 currentLocation: {lat: 0, lng: 0},
-                markers: [
-                    {
-                        name: "House of Potgieter",
-                        description: "description 2",
-                        date_build: "",
-                        position: {
-                            lat: 59.434216,
-                            lng: 24.809292,
-                        }
-                    }
-                ],
+                markers: [],
                 infoContent: '',
                 infoWindowPos: {
                     lat: 0,
@@ -60,6 +50,10 @@
             };
         },
         mounted: function () {
+            let self = this
+            this.$http.get('http://localhost:8080/api/object/all').then((res) => {
+                self.markers = res.body
+            })
             this.geolocation();
         },
         methods: {
@@ -72,7 +66,7 @@
                 });
             },
             toggleInfoWindow: function (marker, idx) {
-                this.infoWindowPos = marker.position;
+                this.infoWindowPos = marker.objectLocation;
                 this.infoContent = this.getInfoWindowContent(marker);
 
 
@@ -97,13 +91,11 @@
                   <div class="card-content">
                     <div class="media">
                       <div class="media-content">
-                        <p class="title is-4">${marker.name}</p>
+                        <p class="title is-4">${marker.title}</p>
                       </div>
                     </div>
                     <div class="content">
                       ${marker.description}
-                      <br>
-                      <time datetime="2016-1-1">${marker.date_build}</time>
                     </div>
                   </div>
                 </div>`);

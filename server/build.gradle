@@ -1,0 +1,23 @@
+plugins {
+	id 'org.springframework.boot' version '1.5.9.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'ee.iti0208'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter-jooq'
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	compile project(':db')
+	runtime('mysql:mysql-connector-java')
+	compile('org.mariadb.jdbc:mariadb-java-client:2.2.0')
+}

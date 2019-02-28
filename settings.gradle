@@ -1,1 +1,5 @@
-rootProject.name = 'iti0208'
+rootProject.name = 'sidewalk'
+
+include 'db'
+project(':db').projectDir = file('db')
+include 'server'

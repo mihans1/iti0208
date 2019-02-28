@@ -10,14 +10,12 @@
 <script>
     import Map from './components/Map.vue'
     import Navbar from "./Navbar";
-    import About from "./components/About.vue"
 
     export default {
         name: 'app',
         components: {
             Map,
-            Navbar,
-            About
+            Navbar
         }
     }
 
