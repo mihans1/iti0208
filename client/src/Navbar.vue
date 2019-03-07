@@ -1,9 +1,9 @@
 <template>
     <div class="topnav">
-        <a class="active" href="add">ADD POINT</a>
-        <a href="topfeed">VIEW TOP POSTS</a>
-        <a href="account">MY ACCOUNT</a>
-        <a href="about">ABOUT US</a>
+        <router-link :to="{path: '/'}" replace>HOME</router-link>
+        <router-link :to="{path: '/add'}" replace>ADD OBJECT</router-link>
+        <router-link :to="{path: '/about'}" replace>ABOUT US</router-link>
+        <router-view></router-view>
     </div>
 </template>
 

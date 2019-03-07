@@ -29,7 +29,7 @@
 
 <script>
     export default {
-        name: 'HelloWorld',
+        name: 'Map',
         data() {
             return {
                 currentLocation: {lat: 0, lng: 0},

@@ -1,23 +1,17 @@
 <template>
     <div>
-        <div>
-            <Navbar/>
-        </div>
-        <div>
-            <p>This is a paragraph.</p>
-            <p>This is another paragraph.</p>
-            <p>This is a paragraph.</p>
-            <p>This is another paragraph.</p>
-        </div>
-        <div>
-            <About/>
-        </div>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
     </div>
+
 </template>
 
 <script>
+
     export default {
-        name: 'About',
+        name: 'About'
     }
 
 </script>

@@ -1,20 +1,25 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
 import About from '@/components/About';
-
+import App from '@/App';
+import AddObject from "../components/AddObject";
 Vue.use(Router)
 export default new Router({
     routes: [
         {
             path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
+            name: 'App',
+            component: App
         },
         {
             path: '/about',
             name: 'About',
             component: About
+        },
+        {
+            path: '/add',
+            name: AddObject,
+            component: AddObject
         }
     ]
 });

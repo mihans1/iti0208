@@ -10,7 +10,6 @@
 <script>
     import Map from './components/Map.vue'
     import Navbar from "./Navbar";
-
     export default {
         name: 'app',
         components: {
@@ -18,13 +17,13 @@
             Navbar
         }
     }
-
 </script>
 
 <style>
     #app {
         height: 100%;
     }
+
     body {
         margin: 0;
     }
