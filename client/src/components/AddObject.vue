@@ -1,17 +1,14 @@
 <template>
-    <div class="add">
-
-        <add msg="Add new object"/>
+    <div id="a">
+        <add/>
     </div>
 </template>
 
 <script>
     const add = {
-        props: ['msg'],
         render(h) {
             return h('div', [
-                h('h1', 'New object'),
-                h('div', this.msg)
+                h('h1', 'ADD NEW OBJECT'),
             ])
         }
     };
@@ -25,7 +22,7 @@
 </script>
 
 <style scoped>
-    .add{
-        background-color: #4caf50;
+    #a{
+        text-align: center;
     }
 </style>
