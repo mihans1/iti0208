@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import About from '@/components/About';
 import App from '@/App';
 import AddObject from "../components/AddObject";
+import Home from '@/Home';
 Vue.use(Router)
 export default new Router({
     routes: [
@@ -20,6 +21,11 @@ export default new Router({
             path: '/add',
             name: AddObject,
             component: AddObject
+        },
+        {
+            path: '/home',
+            name: Home,
+            component: Home
         }
     ]
 });

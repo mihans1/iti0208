@@ -1,9 +1,8 @@
 <template>
     <div class="topnav">
-        <router-link :to="{path: '/'}" replace>HOME</router-link>
-        <router-link :to="{path: '/add'}" replace>ADD OBJECT</router-link>
-        <router-link :to="{path: '/about'}" replace>ABOUT US</router-link>
-        <router-view></router-view>
+        <router-link :to="{path: '/home'}" >HOME</router-link>
+        <router-link :to="{path: '/add'}" >ADD OBJECT</router-link>
+        <router-link :to="{path: '/about'}" >ABOUT US</router-link>
     </div>
 </template>
 
