@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import router from './router'
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
 
 Vue.config.productionTip = false
 
