@@ -1,5 +1,7 @@
-package ee.iti0208.sidewalk.object;
+package ee.iti0208.sidewalk.object.service;
 
+import ee.iti0208.sidewalk.object.domain.Object;
+import ee.iti0208.sidewalk.object.repository.ObjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

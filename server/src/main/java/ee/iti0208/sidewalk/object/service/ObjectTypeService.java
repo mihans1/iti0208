@@ -1,5 +1,7 @@
-package ee.iti0208.sidewalk.object;
+package ee.iti0208.sidewalk.object.service;
 
+import ee.iti0208.sidewalk.object.domain.ObjectType;
+import ee.iti0208.sidewalk.object.repository.ObjectTypeRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

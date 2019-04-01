@@ -1,7 +1,10 @@
-package ee.iti0208.sidewalk.object;
+package ee.iti0208.sidewalk.object.repository;
 
 import ee.iti0208.sidewalk.jooq.tables.records.LocationRecord;
 import ee.iti0208.sidewalk.jooq.tables.records.ObjectRecord;
+import ee.iti0208.sidewalk.object.domain.Location;
+import ee.iti0208.sidewalk.object.domain.Object;
+import ee.iti0208.sidewalk.object.domain.ObjectType;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
@@ -69,6 +72,4 @@ public class ObjectRepository {
         record.store();
         return record.getId();
     }
-
-
 }

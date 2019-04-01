@@ -1,5 +1,7 @@
-package ee.iti0208.sidewalk.object;
+package ee.iti0208.sidewalk.object.controller;
 
+import ee.iti0208.sidewalk.object.domain.Object;
+import ee.iti0208.sidewalk.object.service.ObjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

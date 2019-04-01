@@ -1,4 +1,4 @@
-package ee.iti0208.sidewalk.object;
+package ee.iti0208.sidewalk.object.domain;
 
 import lombok.Data;
 

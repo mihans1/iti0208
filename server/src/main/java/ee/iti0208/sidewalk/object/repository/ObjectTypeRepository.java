@@ -1,7 +1,6 @@
-package ee.iti0208.sidewalk.object;
+package ee.iti0208.sidewalk.object.repository;
 
-import ee.iti0208.sidewalk.jooq.tables.Object;
-import ee.iti0208.sidewalk.jooq.tables.Objecttype;
+import ee.iti0208.sidewalk.object.domain.ObjectType;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.RecordMapper;
