@@ -31,6 +31,10 @@ public class ObjectRepository {
         object.setObjectLocation(record.into(LOCATION).into(Location.class));
         return object;
     };
+    public RecordMapper<Record, Location> locationRecordMapper = record -> {
+        Location location=record.into(LOCATION).into(Location.class);
+        return location;
+    };
 
     public Object getObjectById(int objectId) {
         return dsl.select()
@@ -71,5 +75,9 @@ public class ObjectRepository {
         LocationRecord record = dsl.newRecord(LOCATION, location);
         record.store();
         return record.getId();
+    }
+
+    public List<Location> getAllLocations() {
+        return dsl.select().from(LOCATION).fetch(locationRecordMapper);
     }
 }

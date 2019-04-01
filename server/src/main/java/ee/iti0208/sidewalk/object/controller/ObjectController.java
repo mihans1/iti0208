@@ -1,5 +1,6 @@
 package ee.iti0208.sidewalk.object.controller;
 
+import ee.iti0208.sidewalk.object.domain.Location;
 import ee.iti0208.sidewalk.object.domain.Object;
 import ee.iti0208.sidewalk.object.service.ObjectService;
 import org.springframework.http.HttpStatus;
@@ -20,12 +21,12 @@ public class ObjectController {
     @Resource
     private ObjectService objectService;
 
-    @PostMapping("/object")
+    @PostMapping("/objects")
     public ResponseEntity<Integer> addObject(@RequestBody Object object) {
         return new ResponseEntity<>(objectService.addObject(object), HttpStatus.OK);
     }
 
-    @GetMapping("/object/all")
+    @GetMapping("/objects")
     public ResponseEntity<List<Object>> getAllObjects(){
         return new ResponseEntity<>(objectService.getAllObjects(), HttpStatus.OK);
     }
@@ -38,5 +39,13 @@ public class ObjectController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+    @GetMapping("/locations")
+    public ResponseEntity<List<Location>> getAllLocations(){
+        return new ResponseEntity<>(objectService.getAllLocations(),HttpStatus.OK);
+    }
+    @PostMapping("/locations")
+    public ResponseEntity<Integer> addLocation(@RequestBody Location location){
+        return new ResponseEntity<>(objectService.addLocation(location), HttpStatus.OK);
     }
 }

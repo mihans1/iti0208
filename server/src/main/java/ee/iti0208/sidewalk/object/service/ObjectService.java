@@ -1,5 +1,6 @@
 package ee.iti0208.sidewalk.object.service;
 
+import ee.iti0208.sidewalk.object.domain.Location;
 import ee.iti0208.sidewalk.object.domain.Object;
 import ee.iti0208.sidewalk.object.repository.ObjectRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +27,14 @@ public class ObjectService {
     public Integer addObject(Object object) {
         objectRepository.addLocation(object.getObjectLocation());
         return objectRepository.addObject(object);
+    }
+
+    public Integer addLocation(Location location) {
+        return objectRepository.addLocation(location);
+
+    }
+
+    public List<Location> getAllLocations() {
+        return objectRepository.getAllLocations();
     }
 }
