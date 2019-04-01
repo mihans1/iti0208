@@ -8,7 +8,9 @@ Vue.component('v-select', vSelect)
 Vue.config.productionTip = false
 
 import VueResource from 'vue-resource';
+import Vuetify from 'vuetify'
 
+Vue.use(Vuetify)
 Vue.use(VueResource);
 
 Vue.use(VueGoogleMaps, {
