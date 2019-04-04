@@ -1,12 +1,19 @@
 <template>
-    <div id="a" @load="getObjectTypes">
+    <div id="a" >
         <add/>
-        <v-form id="obj-add" method="post" @submit="">
+        <v-form id="obj-add" method="post">
             <div id="type">
                 <label for="obj-type"><h3>Choose obstacle type</h3></label>
-                <v-select id="obj-type" name="objectType" v-model="objectType"
-                          :options="objectTypes" label="type" item-text="type" item-value="id">{{objectType}}
-                </v-select>
+                <select id="obj-type" name="objectType" v-model="objectType"
+                          label="type" item-text="type" item-value="id">
+                    <option disabled value="">SELECT OBSTACLE</option>
+                    <option>DANGEROUS MANHOLE COVER</option>
+                    <option>CAR PARKED ON SIDEWALK</option>
+                    <option>ANGRY POLITICIANS</option>
+                    <option>SNOWDRIFT</option>
+                    <option>POTHOLE</option>
+                    <option>MUPO</option>
+                </select>
             </div>
             <div>
                 <p/>
@@ -16,11 +23,11 @@
                 <v-text-field
                         value="Description"
                         hint="For example a car on the pavement or no passing"
-                ></v-text-field>
+                        v-model="message"></v-text-field>
                 <div class="columns">
                     <div class="column">
-                        <label class="label" for="class-lat" >Latitude</label>
-                        <p class="control"><input id="class-lat"
+                        <label class="label" for="class_lat" >Latitude</label>
+                        <p class="control"><input id="class_lat"
                                                   class="input"
                                                   type="number"
                                                   pattern="[0-9]{2}.[0-9]{6}"
@@ -28,17 +35,14 @@
                                                   v-model="lat" ></p>
                     </div>
                     <div class="column">
-                        <label class="label" for="class-lng">Longitude</label>
-                        <p class="control"><input id="class-lng" class="input" pattern="[0-9]{2}.[0-9]{6}" type="text" name="" v-model="lng" ></p>
+                        <label class="label" for="class_lng">Longitude</label>
+                        <p class="control"><input id="class_lng" class="input" pattern="[0-9]{2}.[0-9]{6}" type="text" name="" v-model="lng" ></p>
                     </div>
                 </div>
                 <coordinate-input :drag-marker="true" @select="addLocation" :lat="lat" :lng="lng"
                                   lat-name="lat-name" lng-name="lng-name" api-key=""/>
                 <button type="submit" v-on:click="addLocation">Add obstacle</button>
-
                 <input type="file"/>
-
-<!--                <button type="submit" v-on:click.prevent="addObject">Add obstacle</button>-->
             </div>
         </v-form>
     </div>
@@ -70,6 +74,21 @@
             }
         },
         methods: {
+            geolocation: function () {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function (error) {
+                            alert(error.message);
+                        }, {
+                            enableHighAccuracy: true
+                            , timeout: 5000
+                        }
+                    );
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            },
+
             getObjectTypes: function () {
                 this.$http.get('http://localhost:8080/api/objectTypes').then(function (response) {
                     this.objectTypes = response.body;
@@ -77,23 +96,15 @@
             },
             addLocation: function() {
                 this.$http({method: 'POST', url: 'http://localhost:8080/api/locations'})
-                    .then(function (response) {
-                        response.send(
-                            this.lat = Number(response.lat),
-                            this.lng = response.lng
+
+                .then(function (response) {
+                            response.send(
                         )
                     })
             },
-            // addObject: function () {
-            //     this.$http({method: 'POST', url: 'http://localhost:8080/api/objects'})
-            //         .then(function (response) {
-            //             this.object = response.body;
-            //         })
-            // }
         },
         mounted() {
             this.getObjectTypes();
-            // this.addObject();
         }
     }
 
